@@ -1,0 +1,25 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>{% block title %}{% endblock title %}</title>
+</head>
+<body>
+ <p>Привет, {{ user }}!</p><br>
+{% if user.is_anonymous %}
+    <p>
+        <a href="{% url 'auth_app:register' %}">
+            Регистрация
+        </a>
+        или
+        <a href="{% url 'auth_app:login' %}">
+            Вход
+        </a>
+    </p>
+{% endif %}
+{% block content %}
+{% endblock content %}
+</body>
+</html>

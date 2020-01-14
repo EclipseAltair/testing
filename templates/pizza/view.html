@@ -1,0 +1,51 @@
+{% extends '_base.html' %}
+
+{% block title %}Register{% endblock title %}
+
+{% block content %}
+
+<body>
+
+<div>
+    <p>Имя: {{ pizza.kind }}</p>
+    <p>Размер: {{ pizza.size }}</p>
+
+    <p>Адрес доставки: {{ pizza.delivery.full }}</p>
+
+    <p>Ингредиенты:</p>
+    <ul>
+    {% for ingredient in pizza.kind.ingredients.all %}
+        {% if ingredient not in pizza.exclude.all %}
+        <li>{{ ingredient.name }}</li>
+        {% endif %}
+    {% endfor %}
+    </ul>
+
+    <p>Дополнительно</p>
+    <ul>
+    {% for ingredient in pizza.extra.all %}
+        <li>{{ ingredient.name }}</li>
+    {% endfor %}
+    </ul>
+
+    <p>Исключено</p>
+    <ul>
+    {% for ingredient in pizza.exclude.all %}
+        <li>{{ ingredient.name }}</li>
+    {% endfor %}
+    </ul>
+
+    <p>Комментарий: {{ pizza.comment }}</p>
+
+    <hr />
+
+    <p>Статус: {{ pizza.delivered|yesno:"Доставлено,Доставляется,Что?" }}</p>
+    <p>Создано: {{ pizza.date_created }}</p>
+    <p>Доставлено: {{ pizza.date_delivered|default_if_none:"Еще нет" }}</p>
+
+    {% if not pizza.delivered %}
+        <a href="{% url 'pizza:close' pizza.id %}">Нажать если доставлено</a>
+    {% endif %}
+</div>
+
+{% endblock %}

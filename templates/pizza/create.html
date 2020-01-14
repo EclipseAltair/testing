@@ -1,0 +1,21 @@
+{% extends '_base.html' %}
+
+{% block title %}Создание{% endblock title %}
+
+{% block content %}
+
+<form action="{% url 'pizza:create' %}" method="POST">
+    {% csrf_token %}
+
+    <h2>Адрес</h2>
+    {{ delivery_form.as_p }}
+
+    <hr />
+
+    <h2>Пицца</h2>
+    {{ pizza_form.as_p }}
+
+    <input type="submit" value="Submit" />
+</form>
+
+{% endblock %}

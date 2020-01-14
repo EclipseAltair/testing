@@ -1,0 +1,5 @@
+pip uninstall amqp anyjson billiard celery django-celery kombu redis
+pip uninstall diff-match-patch, xlrd, defusedxml, odfpy, jdcal, et-xmlfile, openpyxl, markuppy, pyyaml, xlwt, tablib, django-import-export
+
+
+celery --app=testing.celery_app:app worker -E -B

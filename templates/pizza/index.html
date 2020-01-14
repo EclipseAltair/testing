@@ -1,0 +1,17 @@
+{% extends '_base.html' %}
+
+{% block title %}Главная{% endblock title %}
+
+{% block content %}
+
+<body>
+
+<a href="{% url 'pizza:create' %}">Создать новый</a>
+
+<ul>
+{% for pizza in pizzas %}
+    <li><a href="{% url 'pizza:view' pizza.id %}">{{ pizza }}</a></li>
+{% endfor %}
+</ul>
+
+{% endblock %}

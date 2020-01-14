@@ -1,0 +1,16 @@
+{% extends '_base.html' %}
+
+{% block title %}Статистика{% endblock title %}
+
+{% block content %}
+<body>
+
+<p>Пицц создано: {{ params.count }}</p>
+<p>Среднее значение дополнительных ингредентов в пицце: {{ params.average_extras }}</p>
+
+<p>Сегодня пицц создано: {{ params.today_pizzas }}</p>
+<p>Сегодня пицц доставлено: {{ params.today_delivered }}</p>
+
+<p>Среднее время доставки: {{ params.average_delivery_time }}</p>
+
+{% endblock %}
