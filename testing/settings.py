@@ -176,7 +176,7 @@ REDIS_BACKEND_URL = 'redis://{host}:{port}/{db}'.format(
 
 CELERY_RESULT_BACKEND = 'djcelery.backends.database.DatabaseBackend'
 
-CELERY_TASK_RESULT_EXPIRES = 18000   # 5 часов
+CELERY_TASK_RESULT_EXPIRES = 1800   # 5 часов
 
 CELERY_ACCEPT_CONTENT = ['json']
 CELERY_TASK_SERIALIZER = 'json'
